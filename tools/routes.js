@@ -10,7 +10,7 @@ const CLIENT_SECRET = process.env.client_secret;
 const REDIRECT_URI = process.env.redirect_uri || 'http://localhost:3000/callback';
 const STATE_KEY = 'spotify_auth_state';
 
-const scopes = ['user-read-private', 'user-read-email'];
+const scopes = ['user-read-private', 'user-read-email', 'user-read-playback-state'];
 
 const spotifyApi = new Spotify({
   clientId: '6a5d6680939d47d597bede80526d8859',
@@ -53,7 +53,7 @@ router.get('/callback', (req, res) => {
       });
 
       // we can also pass the token to the browser to make requests from there
-      res.redirect(`/user/${access_token}/${refresh_token}`);
+      res.redirect(`/search/${access_token}/${refresh_token}`);
     }).catch(err => {
       res.redirect('/error/invalid token');
     });

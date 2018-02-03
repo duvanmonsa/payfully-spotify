@@ -17,7 +17,8 @@ export default {
     uri: null
 
   },
-  searches:[]
+  searches:[],
+  track: false
 
 };
 

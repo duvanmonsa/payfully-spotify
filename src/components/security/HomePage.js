@@ -5,7 +5,7 @@ class HomePage extends  React.Component {
   render() {
     return (
       <div className="jumbotron">
-        <h1>Login with your Spotify account.</h1>
+        <p>Login with your Spotify account.</p>
         <a href="login" className="btn btn-primary btn-lg">Login </a>
       </div>
 

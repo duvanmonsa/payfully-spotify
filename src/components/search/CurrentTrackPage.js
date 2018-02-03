@@ -4,16 +4,9 @@ import {bindActionCreators} from "redux";
 import * as searchActions from "../../actions/searchAction";
 import SearchForm from "./SearchForm";
 import SearchList from "./SearchList";
-import {getMyInfo, setTokens} from "../../actions/userAction";
 
-class SearchPage extends React.Component {
+class CurrentTrackPage extends React.Component {
 
-  componentDidMount() {
-    // params injected via react-router, dispatch injected via connect
-    const {params} = this.props;
-    const {accessToken, refreshToken} = params;
-    if(accessToken && refreshToken) this.props.actions.setTokens({accessToken, refreshToken});
-  }
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -43,7 +36,6 @@ class SearchPage extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.searches);
     this.setState({searches: nextProps.searches});
     this.setState({searching: false});
   }
@@ -78,4 +70,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
+export default connect(mapStateToProps, mapDispatchToProps)(CurrentTrackPage);

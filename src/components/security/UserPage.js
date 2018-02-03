@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {
-  getMyInfo,
-  setTokens,
-} from '../../actions/userAction';
-
+import {getMyInfo, setTokens} from '../../actions/userAction';
 /**
  * Our user page
  * Displays the user's information

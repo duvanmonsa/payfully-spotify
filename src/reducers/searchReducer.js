@@ -1,13 +1,12 @@
-import * as types from  "../actions/actionsTypes";
+import * as types from "../actions/actionsTypes";
 import inistialState from "./initialState";
 
-export  default function courseReducer(state = inistialState.searches , action) {
-  switch(action.type) {
-    case types.LOAD_SEARCH_SUCCESS :
-      return action.searches;
+export default function searchReducer(state = inistialState.searches, action) {
+  switch (action.type) {
+
     case types.SEARCH_TERM_SUCCESS :
-      const searches  = action.searches.tracks.items;
-      return Object.assign({},state,[{artist: 'asda', track: 'asd', album}]);
+      if (action.total <= 0) return state;
+      return Object.assign([], action.searches);
 
     default:
       return state;
