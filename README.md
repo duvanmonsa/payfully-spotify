@@ -16,45 +16,18 @@ payfully-spotify/
   .babelrc
   webpack.config.dev.js
   tools/
-    routes.js
-    srcServer.js
-    testSetup.js
   src/
     actions/
-      actionsTypes.js
-      ajaxStatusAction.js
-      searchAction.js
-      trackAction.js
-      userAction.js
     components/
       common/
-        Header.js
-        LoadingDots.js
-        TextInput.js
       search/
-        SearchForm.js
-        SearchList.js
-        SearchListRow.js
-        SearchPage.js
       security/
-        ErrorPage.js
-        HomePage.js
       track/
-        CurrentTrackPage.js
       App.js
     reducers/
-      ajaxStatusReducer.js
-      index.js
-      initialState.js
-      searchReducer.js
-      trackReducer.js
-      userReducer.js
     store/
-      configureStore.js
     styles/
-      styles.css
     images/
-      logo,jpg
     index.html
     index.js
     index.test.js
@@ -83,25 +56,30 @@ Launches the test runner in the interactive watch mode.<br>
 
 ### `npm run lint`
 
-you can see any lint error in the code.<br>
+You can see any lint error in the code.<br>
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Install Locally
 
-See the section about [deployment](#deployment) for more information.
+```
+  git clone [https://github.com/duvanmonsa/payfully-spotify.git]
+  cd payfully-spotify
+  npm install
+  npm start
 
-### `npm run eject`
+```
+## Application Flow
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `login`
+![alt text](https://github.com/duvanmonsa/payfully-spotify/blob/master/login.png "Song")
+### `search music`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![alt text](https://github.com/duvanmonsa/payfully-spotify/blob/master/seearch.png "Browse")
+### `see current track`
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![alt text](https://github.com/duvanmonsa/payfully-spotify/blob/master/track.png "Browse")
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
+## License
+Released under the MIT License. Check LICENSE for more info.
