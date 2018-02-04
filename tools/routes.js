@@ -1,6 +1,5 @@
 import Spotify from 'spotify-web-api-node';
 import express from 'express';
-import path from 'path';
 
 const router = new express.Router();
 
