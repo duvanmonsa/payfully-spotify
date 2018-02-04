@@ -60,6 +60,13 @@ You can see any lint error in the code.<br>
 
 ### `npm run build`
 
+Builds the app for production to the dist folder.
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.
+By default, it also includes a service worker so that your app loads from local cache on future visits.
+
+Your app is ready to be deployed.
 
 ## Install Locally
 

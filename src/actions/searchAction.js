@@ -17,8 +17,9 @@ export function searchTerm(term) {
     dispatch(beginAjaxCall());
     spotifyApi.searchTracks(term, {limit: 10}).then(data => {
       dispatch({type: types.SEARCH_TERM_SUCCESS, searches: data.tracks.items, total: data.tracks.total});
-    }).catch(e => {
-      dispatch({type: types.SEARCH_TERM_FAILURE, error: e});
+    }).catch(error => {
+      dispatch({type: types.SEARCH_TERM_FAILURE, error: error});
+      throw(error);
     });
 
   };

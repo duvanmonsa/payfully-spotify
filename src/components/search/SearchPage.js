@@ -1,3 +1,4 @@
+/* eslint-disable react/sort-comp */
 import React, {Component, PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
@@ -38,6 +39,9 @@ class SearchPage extends React.Component {
     if(this.state.term) {
       this.setState({searching: true,clicked: true});
       this.props.actions.searchTerm(this.state.term);
+    }
+    else{
+      this.setState({clicked: true});
     }
   }
 

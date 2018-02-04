@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component,PropTypes} from 'react';
 
 /**
  * Our error page
  * Displays the error
  */
-export default class ErrorPage extends Component {
+ class ErrorPage extends Component {
   render() {
     // injected via react-router
     const {errorMsg} = this.props.params;
@@ -16,3 +16,10 @@ export default class ErrorPage extends Component {
     );
   }
 }
+
+ErrorPage.propTypes = {
+  params: PropTypes.object.isRequired
+
+};
+
+export default ErrorPage;

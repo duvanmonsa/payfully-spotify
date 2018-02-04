@@ -1,5 +1,8 @@
+/*eslint-disable no-case-declarations*/
+/*eslint-env es6*/
 import * as types from "../actions/actionsTypes";
 import initialState from "./initialState";
+
 
 export default function userReducer(state = initialState.user, action) {
   switch (action.type) {
