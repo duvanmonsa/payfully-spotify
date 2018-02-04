@@ -2,11 +2,12 @@ import React, {PropTypes} from "react";
 import SearchListRow from "./SearchListRow";
 import {Table} from "react-bootstrap";
 
-const SearchList = ({searches}) => {
+const SearchList = ({searches, clicked}) => {
+  let results = clicked != false ? 'No results' : '';
   return (
     <div>
       {searches.length === 0 ? (
-        <div>No results</div>
+        <div> {results}</div>
       ) : (
         <Table striped bordered condensed hover className="table">
           <thead>
@@ -28,9 +29,9 @@ const SearchList = ({searches}) => {
 
 };
 
-// SearchList.propTypes = {
-//
-//   searches: PropTypes.array.isRequired
-// };
+SearchList.propTypes = {
+  searches: PropTypes.array.isRequired,
+  clicked: PropTypes.bool.isRequired
+};
 
 export default SearchList;

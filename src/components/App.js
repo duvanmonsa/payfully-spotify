@@ -21,14 +21,15 @@ class App extends React.Component {
 
 App.propTypes = {
   children: PropTypes.object.isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  logged: PropTypes.bool.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
   return {
     loading: state.ajaxCallsInProgress > 0,
     logged:  state.user.accessToken != null
-  }
+  };
 }
 
 export default connect(mapStateToProps)(App);

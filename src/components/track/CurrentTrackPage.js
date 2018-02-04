@@ -10,7 +10,12 @@ class CurrentTrackPage extends React.Component {
     if(!this.props.logged) this.redirect();
     this.props.actions.loadCurrentTrack();
   }
-
+  componentWillReceiveProps(nextProps) {
+    this.setState({track: nextProps.track});
+  }
+  redirect() {
+    this.context.router.push("/");
+  }
   render() {
 
     let time = new Date(this.props.track.duration_ms);
@@ -45,7 +50,7 @@ class CurrentTrackPage extends React.Component {
                 </Panel>
               </Col>
               <Col md={4} mdPull={4}>
-                <img src={this.props.track.album.images[0].url} alt="track image" width="340" class="img-thumbnail"/>
+                <img src={this.props.track.album.images[0].url} alt="track image" width="340" className="img-thumbnail"/>
               </Col>
             </Row>
           </Grid>
@@ -65,19 +70,17 @@ class CurrentTrackPage extends React.Component {
 
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({track: nextProps.track});
-  }
 
-  redirect() {
-    this.context.router.push("/");
-  }
+
+
 
 }
 
 
 CurrentTrackPage.propTypes = {
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  logged: PropTypes.bool.isRequired,
+  track: PropTypes.object.isRequired
 
 };
 

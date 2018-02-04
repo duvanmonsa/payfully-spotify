@@ -1,9 +1,10 @@
-import * as types from  "../actions/actionsTypes";
+import * as types from "../actions/actionsTypes";
 import initialState from "./initialState";
 
-export  default function userReducer(state = initialState.user , action) {
-  switch(action.type) {
+export default function userReducer(state = initialState.user, action) {
+  switch (action.type) {
     case types.SPOTIFY_TOKENS:
+
       const {accessToken, refreshToken} = action;
       return Object.assign({}, state, {accessToken, refreshToken});
 

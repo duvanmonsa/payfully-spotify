@@ -1,8 +1,7 @@
 import React, {PropTypes} from "react";
 
 
-
-const SearchListRow =  ({search}) => {
+const SearchListRow = ({search}) => {
   // debugger;
   return (
     <tr>
@@ -14,10 +13,9 @@ const SearchListRow =  ({search}) => {
 
 };
 
-// SearchListRow.propTypes = {
-//   search: PropTypes.object.isRequired
-// };
-
+SearchListRow.propTypes = {
+  search: PropTypes.object.isRequired
+};
 
 
 export default SearchListRow;

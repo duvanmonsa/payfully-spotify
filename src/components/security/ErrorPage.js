@@ -1,5 +1,4 @@
-
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 /**
  * Our error page
@@ -8,7 +7,7 @@ import React, { Component } from 'react';
 export default class ErrorPage extends Component {
   render() {
     // injected via react-router
-    const { errorMsg } = this.props.params;
+    const {errorMsg} = this.props.params;
     return (
       <div className="error">
         <h2>An Error Occured</h2>

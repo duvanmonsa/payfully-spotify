@@ -31,7 +31,8 @@ SearchForm.propTypes = {
   onSearch: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   searching: PropTypes.bool,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  term: PropTypes.text
 };
 
 export default SearchForm;

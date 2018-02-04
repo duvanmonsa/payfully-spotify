@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PropTypes} from "react";
 import {Link} from "react-router";
 import {connect} from "react-redux";
 import {Jumbotron,Button} from "react-bootstrap";
@@ -27,10 +27,16 @@ class HomePage extends React.Component {
     );
   }
 }
+
+HomePage.propTypes = {
+  logged: PropTypes.bool.isRequired
+
+};
+
 function mapStateToProps(state, ownProps) {
   return {
-    logged:  state.user.accessToken != null
-  }
+    logged: state.user.accessToken != null
+  };
 }
 
 export default connect(mapStateToProps)(HomePage);
