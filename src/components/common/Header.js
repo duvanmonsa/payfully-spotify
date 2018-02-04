@@ -1,18 +1,49 @@
 import React, {PropTypes} from "react";
 import {Link, IndexLink} from "react-router";
 import LoadingDots from "./LoadingDots";
+import {Navbar,Nav, NavItem,NavDropdown} from "react-bootstrap";
 
 const Header = ({loading, logged}) => {
-  return (
+  return(
+    <Navbar inverse collapseOnSelect>
+      <Navbar.Header>
+        <Navbar.Brand>
+          <IndexLink to="/" activeClassName="active"><img src={require('../../images/logo.jpg')} width='20'/> </IndexLink>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+      </Navbar.Header>
+      <Navbar.Collapse>
+        {logged ? (
+        <Nav>
+          <li role="presentation" class="">
+            <Link to="/" activeClassName="active">Home </Link>
+          </li>
+          <li role="presentation" class="">
+            <Link to="/search" activeClassName="active">Search </Link>
+          </li>
+          <li role="presentation" class="">
+            <Link to="/track" activeClassName="active">Current Track </Link>
+          </li>
+          <li role="presentation" class="">
+            <a href="#"> {loading && <LoadingDots interval={100} dots={20}/>} </a>
+          </li>
 
-    <nav>
-      <IndexLink to="/" activeClassName="active" >Home </IndexLink>
-      {logged &&  " | "}
-      {logged && <Link to="/search" activeClassName="active" >Search </Link>}
-      {logged &&  " | "}
-      {logged && <Link to="/track" activeClassName="active" >Current Track </Link>}
-      {loading && <LoadingDots interval={100} dots={20}/>}
-    </nav>
+        </Nav>
+        ):(<div></div>)}
+        <Nav pullRight>
+          {logged ? (
+          <NavItem eventKey={1} href="/">
+            Logout
+          </NavItem>
+            ):
+            (
+          <NavItem eventKey={2} href="/">
+            Login
+          </NavItem>
+            )}
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 };
 

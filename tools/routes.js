@@ -48,9 +48,9 @@ router.get('/callback', (req, res) => {
       spotifyApi.setRefreshToken(refresh_token);
 
       // use the access token to access the Spotify Web API
-      spotifyApi.getMe().then(({body}) => {
-        console.log(body);
-      });
+      // spotifyApi.getMe().then(({body}) => {
+      //
+      // });
 
       // we can also pass the token to the browser to make requests from there
       res.redirect(`/search/${access_token}/${refresh_token}`);

@@ -11,8 +11,11 @@ class SearchPage extends React.Component {
   componentDidMount() {
     // params injected via react-router, dispatch injected via connect
     const {params} = this.props;
-    const {accessToken, refreshToken} = params;
-    if(accessToken && refreshToken) this.props.actions.setTokens({accessToken, refreshToken});
+      const {accessToken, refreshToken} = params;
+    if(accessToken && refreshToken) {
+      this.props.actions.setTokens({accessToken, refreshToken});
+    }
+    else if(!this.props.logged) this.redirect();
   }
   constructor(props, context) {
     super(props, context);
@@ -54,8 +57,13 @@ class SearchPage extends React.Component {
 
   searchTerm(event) {
     event.preventDefault();
-    this.setState({searching: true});
-    this.props.actions.searchTerm(this.state.term);
+    if(this.state.term) {
+      this.setState({searching: true});
+      this.props.actions.searchTerm(this.state.term);
+    }
+  }
+  redirect() {
+    this.context.router.push("/");
   }
 }
 
@@ -65,10 +73,15 @@ SearchPage.propTypes = {
 
 };
 
+SearchPage.contextTypes = {
+  router: PropTypes.object
+};
+
 function mapStateToProps(state, ownProps) {
 
   return {
-    searches: state.searches
+    searches: state.searches,
+    logged:  state.user.accessToken != null
   };
 }
 

@@ -5,13 +5,16 @@ import {connect} from "react-redux";
 class App extends React.Component {
   render() {
     return (
+      <div>
+        <Header
+          loading={this.props.loading}
+          logged={this.props.logged}
+        />
         <div className="container-fluid">
-          <Header
-            loading={this.props.loading}
-            logged={this.props.logged}
-          />
           {this.props.children}
         </div>
+      </div>
+
     );
   }
 }

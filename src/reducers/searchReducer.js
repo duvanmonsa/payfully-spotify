@@ -8,6 +8,9 @@ export default function searchReducer(state = inistialState.searches, action) {
       if (action.total <= 0) return state;
       return Object.assign([], action.searches);
 
+    case types.SEARCH_TERM_FAILURE :
+      return Object.assign([], []);
+
     default:
       return state;
   }

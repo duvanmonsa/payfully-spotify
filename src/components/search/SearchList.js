@@ -1,5 +1,6 @@
 import React, {PropTypes} from "react";
 import SearchListRow from "./SearchListRow";
+import {Table} from "react-bootstrap";
 
 const SearchList = ({searches}) => {
   return (
@@ -7,7 +8,7 @@ const SearchList = ({searches}) => {
       {searches.length === 0 ? (
         <div>No results</div>
       ) : (
-        <table className="table">
+        <Table striped bordered condensed hover className="table">
           <thead>
           <tr>
             <th>Artist</th>
@@ -20,7 +21,7 @@ const SearchList = ({searches}) => {
             <SearchListRow key={search.id} search={search}/>
           )}
           </tbody>
-        </table>
+        </Table>
       )}
     </div>
   );

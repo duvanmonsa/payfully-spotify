@@ -24,6 +24,7 @@ app.use(cookieParser())
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({extended: false}));
 
+
 app.use('/', routes);
 
 app.get('*', function (req, res) {

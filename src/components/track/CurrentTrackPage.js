@@ -2,37 +2,64 @@ import React, {Component, PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as trackActions from "../../actions/trackAction";
-import  {loadCurrentTrack} from "../../actions/trackAction";
+import {Grid, Col, Row, Panel, PageHeader} from "react-bootstrap";
 
 class CurrentTrackPage extends React.Component {
 
   componentDidMount() {
+    if(!this.props.logged) this.redirect();
     this.props.actions.loadCurrentTrack();
   }
 
   render() {
+
     let time = new Date(this.props.track.duration_ms);
-    let minutes = time.getMinutes()+':'+time.getSeconds();
-    if(this.props.track != false)
-    {
+    let minutes = time.getMinutes() + ':' + time.getSeconds();
+    if (this.props.track != false) {
+
       return (
         <div>
-          <h1>Current Track</h1>
-
-          <img src={this.props.track.album.images[0].url} alt="track image" width="300" class="img-thumbnail"/>
-          <h2>Album:</h2>{this.props.track.album.name}<br/>
-          <h2>Artist:</h2>{this.props.track.artists[0].name}<br/>
-          <h2>Name:</h2>{this.props.track.name}<br/>
-          <h2>Duration:</h2>{minutes}<br/>
-
+          <PageHeader>
+            Current Track
+          </PageHeader>
+          <Grid>
+            <Row className="show-grid">
+              <Col md={4} mdPush={4}>
+                <Panel>
+                  <Panel.Heading>
+                    <Panel.Title componentClass="h3">Album</Panel.Title>
+                  </Panel.Heading>
+                  <Panel.Body>{this.props.track.album.name}</Panel.Body>
+                  <Panel.Heading>
+                    <Panel.Title componentClass="h3">Artist</Panel.Title>
+                  </Panel.Heading>
+                  <Panel.Body>{this.props.track.artists[0].name}</Panel.Body>
+                  <Panel.Heading>
+                    <Panel.Title componentClass="h3">Name</Panel.Title>
+                  </Panel.Heading>
+                  <Panel.Body>{this.props.track.name}</Panel.Body>
+                  <Panel.Heading>
+                    <Panel.Title componentClass="h3">Duration</Panel.Title>
+                  </Panel.Heading>
+                  <Panel.Body>{minutes}</Panel.Body>
+                </Panel>
+              </Col>
+              <Col md={4} mdPull={4}>
+                <img src={this.props.track.album.images[0].url} alt="track image" width="340" class="img-thumbnail"/>
+              </Col>
+            </Row>
+          </Grid>
         </div>
+
       );
 
     }
 
-    return(
+    return (
       <div>
-        <h1>You are not listen to music.</h1>
+        <PageHeader>
+          You are not listening to music.
+        </PageHeader>
       </div>
     );
 
@@ -40,6 +67,10 @@ class CurrentTrackPage extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({track: nextProps.track});
+  }
+
+  redirect() {
+    this.context.router.push("/");
   }
 
 }
@@ -50,10 +81,16 @@ CurrentTrackPage.propTypes = {
 
 };
 
+CurrentTrackPage.contextTypes = {
+  router: PropTypes.object
+};
+
+
 function mapStateToProps(state, ownProps) {
 
   return {
-    track: state.track
+    track: state.track,
+    logged:  state.user.accessToken != null
   };
 }
 

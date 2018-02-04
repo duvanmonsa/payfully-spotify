@@ -1,13 +1,18 @@
 import React, {PropTypes} from 'react';
 import TextInput from '../common/TextInput';
+import {PageHeader} from "react-bootstrap";
 
 const SearchForm = ({term, onSearch, onChange, searching, errors}) => {
   return (
-    <form>
-      <h1>Search on Spotify</h1>
+
+    <form className="form-search">
+
+      <PageHeader>
+        Search on Spotify
+      </PageHeader>
       <TextInput
         name="term"
-        label="Term"
+        placeholder="Keyword"
         value={term}
         onChange={onChange}
         error={errors.title}/>

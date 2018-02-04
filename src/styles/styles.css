@@ -1,6 +1,6 @@
 /*Styles*/
 
-#app {
+.container-fluid {
   font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #4d4d4d;
   min-width: 550px;
@@ -12,6 +12,19 @@ a.active {
   color: orange;
 }
 
-nav {
-  padding-top: 20px;
+/*nav {*/
+  /*padding-top: 20px;*/
+/*}*/
+.form-signin {
+  margin-top: 200px;
+}
+.form-search {
+  margin-bottom: 20px;
+}
+
+.table th{
+  text-align: center;
+}
+.login-button {
+  width: 300px;
 }
