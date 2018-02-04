@@ -29,7 +29,11 @@ class CurrentTrackPage extends React.Component {
           </PageHeader>
           <Grid>
             <Row className="show-grid">
-              <Col md={4} mdPush={4}>
+
+              <Col md={6} >
+                <img src={this.props.track.album.images[0].url} alt="track image" width="350" className="img-thumbnail"/>
+              </Col>
+              <Col md={6}>
                 <Panel>
                   <Panel.Heading>
                     <Panel.Title componentClass="h3">Album</Panel.Title>
@@ -48,9 +52,6 @@ class CurrentTrackPage extends React.Component {
                   </Panel.Heading>
                   <Panel.Body>{minutes}</Panel.Body>
                 </Panel>
-              </Col>
-              <Col md={4} mdPull={4}>
-                <img src={this.props.track.album.images[0].url} alt="track image" width="340" className="img-thumbnail"/>
               </Col>
             </Row>
           </Grid>

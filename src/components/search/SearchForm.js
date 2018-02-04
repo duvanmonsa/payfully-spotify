@@ -12,6 +12,7 @@ const SearchForm = ({term, onSearch, onChange, searching, errors}) => {
       </PageHeader>
       <TextInput
         name="term"
+        label=""
         placeholder="Keyword"
         value={term}
         onChange={onChange}
@@ -32,7 +33,7 @@ SearchForm.propTypes = {
   onChange: PropTypes.func.isRequired,
   searching: PropTypes.bool,
   errors: PropTypes.object,
-  term: PropTypes.text
+  term: PropTypes.string.isRequired
 };
 
 export default SearchForm;

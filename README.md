@@ -15,6 +15,7 @@ payfully-spotify/
   package.json
   .babelrc
   webpack.config.dev.js
+  webpack.config.prod.js
   tools/
   src/
     actions/
