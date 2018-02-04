@@ -64,7 +64,7 @@ You can see any lint error in the code.<br>
 ## Install Locally
 
 ```
-  git clone [https://github.com/duvanmonsa/payfully-spotify.git]
+  git clone https://github.com/duvanmonsa/payfully-spotify.git
   cd payfully-spotify
   npm install
   npm start
@@ -72,14 +72,18 @@ You can see any lint error in the code.<br>
 ```
 ## Application Flow
 
-### `login`
-![alt text](https://github.com/duvanmonsa/payfully-spotify/blob/master/login.png "Song")
-### `search music`
-
-![alt text](https://github.com/duvanmonsa/payfully-spotify/blob/master/seearch.png "Browse")
-### `see current track`
-
-![alt text](https://github.com/duvanmonsa/payfully-spotify/blob/master/track.png "Browse")
+### `1. login`
+- First step is to sign in with you Spotify account.
+  [https://localhost:3000/login]
+![alt text](https://github.com/duvanmonsa/payfully-spotify/blob/master/login.png "Login")
+### `2. search music`
+- Second step is search for a keyword to find a list of tracks.
+   [https://localhost:3000/search]
+![alt text](https://github.com/duvanmonsa/payfully-spotify/blob/master/search.png "Search")
+### `3. see current track`
+- Third step will display the current track that are currently listing on Spotify.
+   [https://localhost:3000/track]
+![alt text](https://github.com/duvanmonsa/payfully-spotify/blob/master/track.png "Track")
 
 ## License
 Released under the MIT License. Check LICENSE for more info.
