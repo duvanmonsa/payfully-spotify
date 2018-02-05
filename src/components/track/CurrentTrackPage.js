@@ -30,10 +30,10 @@ class CurrentTrackPage extends React.Component {
           <Grid>
             <Row className="show-grid">
 
-              <Col md={6} >
-                <img src={this.props.track.album.images[0].url} alt="track image" width="350" className="img-thumbnail"/>
+              <Col md={5} >
+                <img src={this.props.track.album.images[0].url} alt="track image" width="340" className="img-thumbnail"/>
               </Col>
-              <Col md={6}>
+              <Col md={5}>
                 <Panel>
                   <Panel.Heading>
                     <Panel.Title componentClass="h3">Album</Panel.Title>

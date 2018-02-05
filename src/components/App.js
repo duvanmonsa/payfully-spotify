@@ -11,7 +11,7 @@ class App extends React.Component {
           loading={this.props.loading}
           logged={this.props.logged}
         />
-        <div className="container">
+        <div className="main-container">
           {this.props.children}
         </div>
       </div>
